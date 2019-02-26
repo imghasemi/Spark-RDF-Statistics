@@ -1,4 +1,4 @@
-# Spark-RDF-Statistics
+# Spark-RDF-Statistics for ER Pakcage
 >Distributed Computation of RDF Dataset Statistics
 
 For further development of the projet see https://github.com/SANSA-Stack/SANSA-RDF, since it has been integrated with [SANSA](https://github.com/SANSA-Stack) core. 
@@ -13,8 +13,8 @@ We describe the first distributed in-memory approach for computing 32 different 
 The preliminary results show that our distributed approach improves upon a previous centralized approach we compare against.
 
 ## Spark-RDF main application class
-The main application class is `net.sansa_stack.rdf.spark.RDFStats`.
-The application requires as application arguments:
+The main application class is `net.sansa_stack.inference.spark.entityresolution.EREntitySerializer` and `net.sansa_stack.inference.spark.entityresolution.EREntitySerializerTest`.
+The application requires as application arguments (Next implementation will support this `i/o`):
 
 1. path to the input folder containing the RDF data as nt (e.g. `/data/input`)
 2. path to the output folder to write the resulting to (e.g. `/data/output`)
@@ -26,19 +26,23 @@ All Spark workers should have access to the `/data/input` and `/data/output` dir
 To run the application on a standalone Spark cluster
 
 1. Setup a Spark cluster
+  ```
+  login to the server. It has already been set up
+  ```
 2. Build the application with Maven
 
   ```
-  cd /path/to/application
-  mvn clean package
+  cd /data/home/<USERNAME>/Repository/SANSA-Inference/sansa-inference-spark/
+  mvn clean package or mvn package
   ```
 
 3. Submit the application to the Spark cluster
 
   ```
   spark-submit \
-		--class net.sansa_stack.rdf.spark.RDFStats \
-		--master spark://spark-master:7077 \
+		--class net.sansa_stack.inference.spark.entityresolution.EREntitySerializerTest \
+		--master spark://<IP>:PORT \
+		--executor-memory 100G \
  		/app/application.jar \
 		-i /data/input -o /data/output  
   ```
