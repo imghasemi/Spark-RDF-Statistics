@@ -43,8 +43,7 @@ To run the application on a standalone Spark cluster
 		--class net.sansa_stack.inference.spark.entityresolution.EREntitySerializerTest \
 		--master spark://<IP>:PORT \
 		--executor-memory 100G \
- 		/app/application.jar \
-		-i /data/input -o /data/output  
+ 		/home/MohammadaliGhasemi/Repository/SANSA-Inference/sansa-inference-spark/target/sansa-inference-spark_2.11-0.4.1-SNAPSHOT.jar \ 
   ```
 
 ## Running the application on a Spark standalone cluster via Docker
