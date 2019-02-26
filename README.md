@@ -1,4 +1,4 @@
-# Spark-RDF-Statistics for ER Pakcage
+# Spark-RDF-Statistics for ER Package
 >Distributed Computation of RDF Dataset Statistics
 
 For further development of the projet see https://github.com/SANSA-Stack/SANSA-RDF, since it has been integrated with [SANSA](https://github.com/SANSA-Stack) core. 
